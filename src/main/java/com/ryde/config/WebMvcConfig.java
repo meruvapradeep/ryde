@@ -94,7 +94,7 @@ class WebMvcConfig extends WebMvcConfigurerAdapter {
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	    int cachePeriod = 3600 * 24 * 15;
+	    int cachePeriod = -3600 * 24 * 15;
 	    registry.addResourceHandler("/static/**").addResourceLocations("/static/").setCachePeriod(cachePeriod);
 	 //   registry.addResourceHandler("/favicon.ico").addResourceLocations("/").setCachePeriod(cachePeriod);
 	   // registry.addResourceHandler("/robots.txt").addResourceLocations("/").setCachePeriod(cachePeriod);

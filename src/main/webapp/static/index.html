@@ -1,14 +1,49 @@
-<html>
-    <head>
-        <title>FleetMagic</title>
 
-        <script type="text/javascript" src="lib/ext-all-debug.js"></script>
-        <script type="text/javascript" src="lib/classic/theme-triton/theme-triton.js"></script>
-        <link rel="stylesheet" href="lib/classic/theme-triton/resources/theme-triton-all.css" />
-        <link rel="stylesheet" href="resources/css/app.css" />
-        <script type="text/javascript" src="app.js"></script>
+<!DOCTYPE html>
+<html ng-app="ryde">
+<head>
+<title>RYDE</title>
+<!-- load bootstrap and font-awesome  -->
+<link rel="stylesheet" href="static/css/bootstrap/3.3.7/bootstrap.min.css" />
+<link rel="stylesheet" href="static/css/font-awesome/4.6.3/font-awesome.min.css" />
 
-    </head>
-    <body>
-    </body>
+
+<!-- load angular and angular route -->
+<script
+	src="static/js/angularjs/1.5.0/angular.min.js"></script>
+<script
+	src="static/js/angularjs/1.5.0/angular-route.min.js"></script>
+
+<!-- load application specific script -->
+<script src="static/js/app.js"></script>
+<script src="static/js/constants.js"></script>
+<script src="static/js/controllers.js"></script>
+<script src="static/js/services.js"></script>
+</head>
+<body>
+
+	<!-- HEADER AND NAVBAR -->
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#/"><i class="fa fa-car"></i>RYDE</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#/inventory"><i class="fa fa-archive"></i> Inventory</a></li>
+					<li><a href="#/customer"><i class="fa fa-user"></i> Customer</a></li>
+				</ul>
+				
+			</div>
+		</nav>
+	</header>
+
+	<!-- MAIN CONTENT AND INJECTED VIEWS -->
+	<div id="main">
+		<!--  This is where content will be injected -->
+		<div ng-view></div>
+	</div>
+
+</body>
 </html>

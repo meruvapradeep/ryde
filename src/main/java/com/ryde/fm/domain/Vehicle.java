@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * @author pmeruva
  *
@@ -33,6 +35,8 @@ public class Vehicle {
 	private Type type;
 	@Enumerated(EnumType.STRING)
 	private Title title;
+	
+	@DateTimeFormat(pattern="MM/dd/yyyy")
 	private Date dispenseDate;
 	private double soldPrice;
 	private double costPrice;

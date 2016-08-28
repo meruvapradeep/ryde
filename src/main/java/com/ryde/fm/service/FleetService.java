@@ -10,6 +10,8 @@ import com.ryde.fm.domain.Vehicle;
 import com.ryde.fm.domain.VehicleStatus;
 import com.ryde.repository.VehicleRepository;
 
+import javassist.tools.web.BadHttpRequest;
+
 import javax.annotation.Resource;
 
 
@@ -57,6 +59,36 @@ public class FleetService {
 	return fleet;
     }
     
-    
+    public Vehicle createVehicle( Vehicle vehicle){
+    	
+    	return vehicleRepository.save(vehicle);
+    }
+
+	public Vehicle updateVehicle(long id, Vehicle vehicle) throws Exception {
+		
+		Vehicle existingVehicle =  vehicleRepository.findOne(id);
+		
+		if(existingVehicle != null){
+			vehicle.setId(existingVehicle.getId());
+			existingVehicle = vehicleRepository.save(vehicle);
+		}else{
+			
+			throw new Exception("Vehicle with not found with ID : " +id);
+		}
+	
+		return existingVehicle;
+		
+	}
+
+	public Vehicle getVehicleById(long id) {
+		
+		return  vehicleRepository.findOne(id);
+	}
+
+	public void deleteVehicle(long id) {
+	
+		vehicleRepository.delete(id);
+		
+	}
 
 }

@@ -79,12 +79,12 @@ public class FleetController {
     }
     
     @RequestMapping(value = "/vehicles/{id}", method = RequestMethod.DELETE, produces = "application/json")
-    public ResponseEntity<String> deleteVehicle(@PathVariable("id") long id) throws Exception {
+    public ResponseEntity deleteVehicle(@PathVariable("id") long id) throws Exception {
 	
 	 fleetService.deleteVehicle(id);
 	
 
-	return new ResponseEntity<String>("Deleted",HttpStatus.ACCEPTED);
+	return new ResponseEntity(HttpStatus.ACCEPTED);
 
     }
     

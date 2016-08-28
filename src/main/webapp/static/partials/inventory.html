@@ -1,3 +1,47 @@
-<div>
-	{{title}}
-</div>
+<!-- <div class="container"> -->
+	<!-- <table>
+		<thead>
+			<tr>
+			<td>Id</td>
+			<td>Registration</td>
+			<td>Vin</td>
+			<td>Make</td>
+			<td>Model</td>
+			<td>Color</td>
+			<td>Type</td>
+			<td>Category</td>
+			<td>Status</td>
+			</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="vehicle in inventory">
+			<td>{{vehicle.id}}</td>
+			<td>{{vehicle.registration}}</td>
+			<td>{{vehicle.vin}}</td>
+			<td>{{vehicle.make}}</td>
+			<td>{{vehicle.model}}</td>
+			<td>{{vehicle.color}}</td>
+			<td>{{vehicle.type}}</td>
+			<td>{{vehicle.category}}</td>
+			<td>{{vehicle.status}}</td>
+		</tr>
+		</tbody>
+	</table> -->
+	<a ui-sref="addVehicle" class="btn-primary btn-lg nodecoration pull-right">+</a>
+	<table class="table rydetable">
+	    <tr>
+	        <td><h3>All Vehicles</h3></td>
+	    </tr>
+	    <tr ng-repeat="vehicle in vehicles">
+	        <td>vin:{{vehicle.vin}}</td>
+	         <td>Make:{{vehicle.make}}</td>
+	          <td>Model:{{vehicle.model}}</td>
+	           <td>Type:{{vehicle.type}}</td>
+	        <td>
+	            <a class="btn btn-primary" ui-sref="viewVehicle({id:vehicle._id})">View</a>
+	            <a class="btn btn-danger"  ng-click="deleteVehicle(vehicle)">Delete</a>
+	        </td>
+	    </tr>
+	</table>
+<!-- </div> -->
+

@@ -3,7 +3,7 @@
 var fmServiceModule = angular.module('ryde.services', []);
 
 fmServiceModule.service('backendService', 
-	function($http, $rootScope){
+	function($http){
 		console.log("backendService");
 		
 		//Sample java script function to call REStful webservice
@@ -13,4 +13,21 @@ fmServiceModule.service('backendService',
 	}
 );
 
+// Inventory service 
+fmServiceModule.service('inventoryService', 
+	function($resource){
+		return $resource('vehicles/:id',{id:'@_id'},{
+			update: {
+				method: 'PUT'
+			}
+		});
+	}
+);
 
+// Popup service
+fmServiceModule.service('popupService',function($window){
+		this.showPopup=function(message){
+			return $window.confirm(message);
+		}
+	}
+);

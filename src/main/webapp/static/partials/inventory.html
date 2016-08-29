@@ -28,20 +28,47 @@
 		</tbody>
 	</table> -->
 	<a ui-sref="addVehicle" class="btn-primary btn-lg nodecoration pull-right">+</a>
-	<table class="table rydetable">
-	    <tr>
-	        <td><h3>All Vehicles</h3></td>
-	    </tr>
-	    <tr ng-repeat="vehicle in vehicles">
-	        <td>vin:{{vehicle.vin}}</td>
+	
+	   <div class="panel panel-info"  ng-repeat="vehicle in vehicles" >
+        <div class="panel-heading">
+            <h3 class="panel-title">
+            <span class="label label-primary"> {{vehicle.make | uppercase}}  - {{vehicle.model | uppercase}} - {{ vehicle.color}} </span>
+            
+            
+            
+            <span class="label label-danger pull-right">{{vehicle.status}}</span>
+            </h3>
+        </div>
+        <div class="panel-body">
+        
+        <img src="static/img/{{vehicle.type}}.png" alt="{{vehicle.type}}" class=" img-rounded">
+        
+        
+        
+        <td>vin:{{vehicle.vin}}</td>
 	         <td>Make:{{vehicle.make}}</td>
 	          <td>Model:{{vehicle.model}}</td>
 	           <td>Type:{{vehicle.type}}</td>
 	        <td>
-	            <a class="btn btn-primary" ui-sref="viewVehicle({id:vehicle._id})">View</a>
-	            <a class="btn btn-danger"  ng-click="deleteVehicle(vehicle)">Delete</a>
-	        </td>
-	    </tr>
-	</table>
-<!-- </div> -->
+        
+        
+        </div>
+        
+          <div class="panel-footer clearfix">
+            <div class="pull-right">
+            <a href="#" class="btn btn-primary"><i class="fa fa-usd" aria-hidden="true"></i>  Sell</a>
+              <a ng-click="deleteVehicle(vehicle)" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+            	  <a href="#" class="btn btn-primary"><i class="fa fa-cogs" aria-hidden="true"></i> Service</a>
+            	    <a href="#" class="btn btn-primary"><i class="fa fa-car" aria-hidden="true"></i> Rent</a>
+                
+                <a ui-sref="viewVehicle({id:vehicle._id})" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
+            </div>
+        </div>
+    </div>
+	   
+	   
+	   
+	   
+	
+
 

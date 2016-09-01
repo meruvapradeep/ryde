@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class StaticController {
 
-	@RequestMapping({"/","/home"})
-public String getIndexPage(){
-	
-	return "index.html";
-}
+	@RequestMapping({ "/", "/home" })
+	public String getIndexPage() {
+
+		return "index.html";
+	}
 }

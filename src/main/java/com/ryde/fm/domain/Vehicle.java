@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * @author pmeruva
  *
@@ -27,6 +29,7 @@ public class Vehicle {
 	private String vin;
 	private String make;
 	private String model;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date lastServiceDate;
 	private int serviceIntervalDays;
 	private String color;
@@ -36,16 +39,20 @@ public class Vehicle {
 	@Enumerated(EnumType.STRING)
 	private Title title;
 	
-	@DateTimeFormat(pattern="MM/dd/yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date dispenseDate;
 	private double soldPrice;
 	private double costPrice;
 	@Enumerated(EnumType.STRING)
 	private Category category;
 	private int tankCapacity;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date nextInspectionDate;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date roadTaxExpiryDate;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date insuranceExpiryDate;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date purchaseDate;
 	@Enumerated(EnumType.STRING)
 	private VehicleStatus status;

@@ -3,6 +3,7 @@ package com.ryde.fm.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -61,7 +62,7 @@ public class FleetController {
 	}
 
 	@RequestMapping(value = "/vehicles/{id}", method = RequestMethod.PUT, produces = "application/json")
-	public ResponseEntity<Vehicle> createVehicle(@PathVariable("id") long id, @RequestBody Vehicle vehicle)
+	public ResponseEntity<Vehicle> updateVehicle(@PathVariable("id") long id, @RequestBody Vehicle vehicle)
 			throws Exception {
 
 		Vehicle updatedVehicle = fleetService.updateVehicle(id, vehicle);
@@ -112,4 +113,7 @@ public class FleetController {
 		return new ResponseEntity<InsuranceMode[]>(InsuranceMode.values(), HttpStatus.OK);
 	}
 
+	
+	
+	
 }

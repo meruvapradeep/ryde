@@ -9,6 +9,6 @@ public class StaticController {
 	@RequestMapping({"/","/home"})
 public String getIndexPage(){
 	
-	return "/index.html";
+	return "index.html";
 }
 }
